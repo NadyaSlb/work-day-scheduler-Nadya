@@ -39,6 +39,16 @@ if (!TasksNine){
 $(textNine).val(TasksNine.text);
 }
 };
+var auditTasksNine = function(){
+    var nineHour = moment().set("hour", 9);
+    if (moment().isAfter(nineHour)) {
+$(textNine).addClass("past");
+}else if (moment().isBefore(nineHour)){
+    $(textNine).addClass("future");
+}else{
+    $(textNine).addClass("present");
+}};
+auditTasksNine();
 
 //Ten
 $(tenAm).text(moment().set("hour", 10).format("hA"));
@@ -56,6 +66,16 @@ if (!TasksTen){
 $(textTen).val(TasksTen.text);
 }
 };
+var auditTasksTen = function(){
+    var tenHour = moment().set("hour", 10);
+    if (moment().isAfter(tenHour)) {
+$(textTen).addClass("past");
+}else if (moment().isBefore(tenHour)){
+    $(textTen).addClass("future");
+}else{
+    $(textTen).addClass("present");
+}};
+auditTasksTen();
 
 //Eleven
 $(elevenAm).text(moment().set("hour", 11).format("hA"));
@@ -73,6 +93,16 @@ if (!TasksEleven){
 $(textEleven).val(TasksEleven.text);
 }
 };
+var auditTasksEleven = function(){
+    var elevenHour = moment().set("hour", 11);
+    if (moment().isAfter(elevenHour)) {
+$(textEleven).addClass("past");
+}else if (moment().isBefore(elevenHour)){
+    $(textEleven).addClass("future");
+}else{
+    $(textEleven).addClass("present");
+}};
+auditTasksEleven();
 
 //Twelve
 $(twelvePm).text(moment().set("hour", 12).format("hA"));
@@ -90,6 +120,16 @@ if (!TasksTwelve){
 $(textTwelve).val(TasksTwelve.text);
 }
 };
+var auditTasksTwelve = function(){
+    var twelveHour = moment().set("hour", 12);
+    if (moment().isAfter(twelveHour)) {
+$(textTwelve).addClass("past");
+}else if (moment().isBefore(twelveHour)){
+    $(textTwelve).addClass("future");
+}else{
+    $(textTwelve).addClass("present");
+}};
+auditTasksTwelve();
 
 //One
 $(onePm).text(moment().set("hour", 13).format("hA"));$(twelvePm).text(moment().set("hour", 12).format("hA"));
@@ -107,6 +147,16 @@ if (!TasksOne){
 $(textOne).val(TasksOne.text);
 }
 };
+var auditTasksOne = function(){
+    var oneHour = moment().set("hour", 13);
+    if (moment().isAfter(oneHour)) {
+$(textOne).addClass("past");
+}else if (moment().isBefore(oneHour)){
+    $(textOne).addClass("future");
+}else{
+    $(textOne).addClass("present");
+}};
+auditTasksOne();
 
 //Two
 $(twoPm).text(moment().set("hour", 14).format("hA"));
@@ -124,6 +174,16 @@ if (!TasksTwo){
 $(textTwo).val(TasksTwo.text);
 }
 };
+var auditTasksTwo = function(){
+    var twoHour = moment().set("hour", 14);
+    if (moment().isAfter(twoHour)) {
+$(textTwo).addClass("past");
+}else if (moment().isBefore(twoHour)){
+    $(textTwo).addClass("future");
+}else{
+    $(textTwo).addClass("present");
+}};
+auditTasksTwo();
 
 //Three
 $(threePm).text(moment().set("hour", 15).format("hA"));
@@ -141,6 +201,16 @@ if (!TasksThree){
 $(textThree).val(TasksThree.text);
 }
 };
+var auditTasksThree = function(){
+    var threeHour = moment().set("hour", 15);
+    if (moment().isAfter(threeHour)) {
+$(textThree).addClass("past");
+}else if (moment().isBefore(threeHour)){
+    $(textThree).addClass("future");
+}else{
+    $(textThree).addClass("present");
+}};
+auditTasksThree();
 
 //Four
 $(fourPm).text(moment().set("hour", 16).format("hA"));
@@ -158,6 +228,16 @@ if (!TasksFour){
 $(textFour).val(TasksFour.text);
 }
 };
+var auditTasksFour = function(){
+    var fourHour = moment().set("hour", 16);
+    if (moment().isAfter(fourHour)) {
+$(textFour).addClass("past");
+}else if (moment().isBefore(fourHour)){
+    $(textFour).addClass("future");
+}else{
+    $(textFour).addClass("present");
+}};
+auditTasksFour();
 
 //Five
 $(fivePm).text(moment().set("hour", 17).format("hA"));
@@ -175,6 +255,17 @@ if (!TasksFive){
 $(textFive).val(TasksFive.text);
 }
 };
+var auditTasksFive = function(){
+    var fiveHour = moment().set("hour", 17);
+    if (moment().isAfter(fiveHour)) {
+$(textFive).addClass("past");
+}else if (moment().isBefore(fiveHour)){
+    $(textFive).addClass("future");
+}else{
+    $(textFive).addClass("present");
+}};
+auditTasksFive();
+
 loadTasksNine();
 loadTasksTen();
 loadTasksEleven();
@@ -184,3 +275,16 @@ loadTasksTwo();
 loadTasksThree();
 loadTasksFour();
 loadTasksFive();
+
+// audit tasks every minute
+setInterval(function() {
+   auditTasksNine();
+   auditTasksTen();
+   auditTasksEleven();
+   auditTasksTwelve();
+   auditTasksOne();
+   auditTasksTwo();
+   auditTasksThree();
+   auditTasksFour();
+   auditTasksFive();
+  }, 60000);
