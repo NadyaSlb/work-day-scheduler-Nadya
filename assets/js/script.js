@@ -9,12 +9,27 @@ var twoPm = $('#twoPm');
 var threePm = $('#threePm');
 var fourPm = $('#fourPm');
 var fivePm = $('#fivePm');
-
+var tasks = {};
+ 
+var saveTasks = function(){
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 //add current day to header
 $(currentDay).text(currentDayM.format("dddd, MMMM Do"));
 
 //add time to time-blocks
 $(nineAm).text(moment().set("hour", 9).format("hA"));
+$('#btnNine').on("click", function(){
+    var taskTextNine = $('#textNine').val();
+    console.log(taskTextNine);
+    var taskTimeNine = $('#nineAm').text();
+    console.log(taskTimeNine);
+    if (taskTextNine && taskTimeNine){
+        tasks.push({
+            text:taskTextNine,
+            time:taskTimeNine});
+            saveTasks();}
+        });
 $(tenAm).text(moment().set("hour", 10).format("hA"));
 $(elevenAm).text(moment().set("hour", 11).format("hA"));
 $(twelvePm).text(moment().set("hour", 12).format("hA"));
@@ -23,3 +38,6 @@ $(twoPm).text(moment().set("hour", 14).format("hA"));
 $(threePm).text(moment().set("hour", 15).format("hA"));
 $(fourPm).text(moment().set("hour", 16).format("hA"));
 $(fivePm).text(moment().set("hour", 17).format("hA"));
+
+
+
